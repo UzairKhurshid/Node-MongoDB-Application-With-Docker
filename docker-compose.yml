@@ -1,0 +1,14 @@
+version: '3' 
+services:
+  web:
+    image: node-docker-app3
+    build: .
+    command: "node server/app.js"
+    ports:
+      - "5000:5000"
+    depends_on:
+      - "mongo"
+  mongo:
+    image: "mongo"
+    ports:
+      - "27017:27017"

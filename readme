@@ -1,0 +1,37 @@
+1:Docker Desktop:
+enable virtualization on your PC.
+turn on HYPER-V from turn on/off windows features.
+download and install Docker desktop.
+to install Docker turn of your antivirus.
+after installation while starting docker desktop if no user for docker warning/error 
+search for computer managment => local users and groups => groups => docker users => add your user
+open docker click next next untill docker dashboard (or) run docker as administator.
+
+2:Node js Project:
+create node js project 
+create a Dockerfile in root directory named as Dockerfile other will throw errors while building docker image
+add docker commands/code as given in this project dockerFile.
+
+3:Docker Image:
+create a docker image
+open cmd from your project root directory
+commands to run
+docker build -t node-docker-app3 .
+docker run -it -p 5000:5000 node-docker-app3
+
+if you change anything before running docker first build with this command and then run
+docker build -t node-docker-app3 .
+docker run -it -p 5000:5000  node-docker-app3 
+
+
+2:If you want to connect your application to database in this project application is conneted to mongodb 
+    database.
+    for this 
+    create docker-compose.yml file and paste the code written in docker-compose.yml file of this application.
+    start terminal/cmd from your project root directory
+    run these commands:
+    a:) docker-compose build
+    b:) docker-compose up 
+
+
+    your project is now up and running.
