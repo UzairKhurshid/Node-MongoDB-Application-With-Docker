@@ -1,3 +1,8 @@
+A Dockerfile is a simple text file that contains the commands a user could call to assemble 
+an image whereas Docker Compose is a tool for defining and running multi-container Docker applications.
+dockerfile for a single application and docker-compose for multiple application/images to run together.
+
+
 1:Docker Desktop:
 enable virtualization on your PC.
 turn on HYPER-V from turn on/off windows features.
@@ -22,6 +27,7 @@ docker run -it -p 5000:5000 node-docker-app3
 if you change anything before running docker first build with this command and then run
 docker build -t node-docker-app3 .
 docker run -it -p 5000:5000  node-docker-app3 
+
 
 
 2:If you want to connect your application to database in this project application is conneted to mongodb 
