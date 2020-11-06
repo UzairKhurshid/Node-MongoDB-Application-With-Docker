@@ -44,3 +44,37 @@ docker run -it -p 5000:5000  node-docker-app3
 
     to stop your app 
     docker-compose down
+
+//how to call another app api running in docker container from app running in diffrent container.
+in our case beam_microservices app rest api calls from apigateway to other microservices 
+
+//in this file how to connect 2 applications with same network runnning in diffrent containers.
+in this beam microservices project 
+apigateway is the main service that will serve all the requests.
+apigateway is making rest api calls to another microservices like quoteservice,quizservice,prizeservice
+and courseservice running in thier own containers in docker.
+
+when you compose docker file it creates a seperate ip address or hostname for that containers
+so we will make a network bridge to connect all of them so they can communicate with each other.
+
+steps involved .
+
+(i)for apigateway
+docker build -t beam-micro-service-apigateway
+docker-compose build
+docker-compose up
+
+(i)for quoteservice
+docker build -t beam-micro-quote-service
+docker-compose build
+docker-compose up
+
+//now create a docker network
+docker network create beam_microservices-network
+docker network connect myNetwork apigateway_web_1   =>//apigateway_web_1 name of container assigned by docker . you can check it by docker ps
+docker network connect myNetwork quoteservice_web_1   =>//quoteservice_web_1 name of container assigned by docker . you can check it by docker ps
+
+//you can inspect you network by this commanf
+docker network inspect beam_microservices-network
+
+restart the containers
