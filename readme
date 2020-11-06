@@ -77,4 +77,8 @@ docker network connect myNetwork quoteservice_web_1   =>//quoteservice_web_1 nam
 //you can inspect you network by this commanf
 docker network inspect beam_microservices-network
 
+
+in apigateway change rest api url
+localhost   =>   containers name   like in our case quoteservice_web_1 
+
 restart the containers
